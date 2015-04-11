@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -18,7 +23,7 @@ stepsperday = ddply(data, .(date), summarize, totalsteps=sum(steps))
 hist(stepsperday$totalsteps, 100, main="Histogram of total number of steps each day", xlab="Total steps per day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 The mean number of steps taken per day is 
 10766.2 and the median number of steps each day is 10765.
@@ -31,7 +36,7 @@ stepsperinterval = ddply(data, .(interval), summarize, averagesteps=mean(steps,n
 with(stepsperinterval,plot(interval, averagesteps, type="l", main="Average number of steps per interval", xlab="Interval", ylab="Number of steps"))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 The maximum value is achieved at:
 
@@ -63,7 +68,7 @@ hist(stepsperday2$totalsteps, 100, main="Histogram of total number of steps each
      xlab="Total steps per day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 The new mean number of steps taken per day is 
 10766.2 and the new median number of steps each day is 10766.2.
@@ -78,4 +83,4 @@ stepsperinterval3 = ddply(data2, .(interval,day), summarize, averagesteps=mean(s
 xyplot(averagesteps ~ interval | day, data=stepsperinterval3, type="l", xlab="Interval", ylab="Number of steps", layout= c(1,2))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
